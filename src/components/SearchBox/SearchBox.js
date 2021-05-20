@@ -3,14 +3,27 @@ import './SearchBox.css';
 
 class SearchBox extends Component {
     state = {
-        searchLine: ''
+        searchLine: '',
+        filmsArray: []
     }
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        this.getData(this.state.searchLine).then((data) => {
+            console.log(data);
+            this.setState({ filmsArray: data })
+        })
     }
+
+    getData = (e) => {
+        return fetch(`http://www.omdbapi.com/?s=${e}&apikey=ce6c89d6`) // поиска фильма по названию, используется GET-запрос с параметром s.
+        .then ((response) => {
+        return response.json();
+    })
+    }
+
     render() {
         const { searchLine } = this.state;
 
@@ -30,7 +43,6 @@ class SearchBox extends Component {
                     <button
                         type="submit"
                         className="search-box__form-submit"
-                        disabled={!searchLine}
                     >
                         Искать
                     </button>

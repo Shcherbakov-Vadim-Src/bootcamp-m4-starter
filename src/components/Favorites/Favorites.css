@@ -2,6 +2,10 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
+    position: relative;
+    bottom: 2110px;
+    left: 700px;
+    width: 390px;
 }
 
 .favorites__name {
@@ -31,3 +35,8 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.favorites__list_item {
+    margin: 8px 0 0 0;
+}
+
