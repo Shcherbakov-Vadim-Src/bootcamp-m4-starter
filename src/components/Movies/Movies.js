@@ -23,7 +23,7 @@ class Movies extends Component {
     }
 
     componentDidUpdate(){
-        console.log('update', this.state.movies);
+        // console.log('update', this.state.movies);
     }
 
     clickListHandler = (imdbID, Title, Year, Poster) => {

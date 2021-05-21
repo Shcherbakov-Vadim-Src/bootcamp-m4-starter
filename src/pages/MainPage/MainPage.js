@@ -18,7 +18,7 @@ class MainPage extends Component {
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
         this.getData(this.state.searchLine).then((data) => {
-            console.log(data);
+            // console.log(data);
             this.setState({ filmsArray: data.Search })
         })
     }
