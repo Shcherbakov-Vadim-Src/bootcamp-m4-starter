@@ -1,15 +1,42 @@
 .list-page {
     padding: 42px calc(50% - 300px);
     position: relative;
-    bottom: 1900px;
+    bottom: 2090px;
     left: 720px;
 }
 
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
+    width: 300px;
 }
 
 .list-page ul li {
     font-size: 18px;
+    margin: 9px 0 5px 0;
+    width: 300px;
+}
+
+@media (min-width:  375px) and (max-width: 833px){
+
+    .list-page {
+        padding: 42px calc(50% - 300px);
+        position: relative;
+        bottom: 0px;
+        left: 118px;
+        width: 400px;
+        margin: 30px 0 0 0;
+    }
+
+    .a-link{
+        margin: 1px 0 0 0;
+    }
+
+    .list-page ul li {
+        font-size: 18px;
+        margin: 9px 0 0 0;
+    }
+
+
+
 }

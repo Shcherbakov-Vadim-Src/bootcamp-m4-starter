@@ -17,3 +17,18 @@
 .main-page__favorites {
     width: 35%;   
 }
+
+@media (min-width:  375px) and (max-width: 833px){
+
+    .main-page__content {
+        padding: 42px calc(50% - 500px);
+        /* display: flex;
+        justify-content: space-between; */
+        margin: 0 0 0 159px;
+    }
+
+
+
+
+
+}

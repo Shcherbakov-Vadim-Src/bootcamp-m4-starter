@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Favorites.css';
 import ListPage from '../../pages/ListPage/ListPage';
-import { Link } from "react-router-dom";
+import { browserHistory, Route, Link } from "react-router-dom";
+
 
 class Favorites extends Component {
     state = {
@@ -10,7 +11,8 @@ class Favorites extends Component {
             // { imdbID: 'tt0068646', Title: 'The Godfather', Year: 1972 }
         ],
         listID: '',
-        data: []
+        data: [],
+        flag: true
     }
 
     handlerChange = (event) => {
@@ -22,22 +24,17 @@ class Favorites extends Component {
         // console.log(clone);
         let arrIDFilms = clone.map((item) => item.imdbID)
         // console.log(arrIDFilms);
-        this.setState({ movies: arrIDFilms })
-        // console.log(this.state.movies); 
-        
+        this.setState({ movies: arrIDFilms,
+                        flag: false
+                    })
+        //  console.log(this.state.movies); 
+
         this.getData().then((data) => {
-            console.log('data-data', data);
+            // console.log('data-data', data);
             this.setState({ 
                 listID: data.id,
                 data: clone
             })
-        })
-
-        let cloneData = [...this.state.data];  // нужно, чтобы список добавлялся еще один а не замещался
-        cloneData.push(this.state.data);
-
-        this.setState({ 
-            data: cloneData
         })
     }
 
@@ -55,30 +52,29 @@ class Favorites extends Component {
     }
 
     componentDidUpdate() {
-        console.log('updateFavorites', this.state);
+        // console.log('updateFavorites', this.state);
     }
 
-    // didUpdateData(){
-    //     let url = `http://localhost:3000/${this.state.dataVelue.id}`;
-    //     return url;
-    // }
+
 
     render() {
+
 
         return (
             <>
                 <div className="favorites">
                     <input onChange={this.handlerChange} value={this.state.title} className="favorites__name" type="text" />
-                    <p>{this.state.title}</p>
+                    {/* <p>{this.state.title}</p> */}
                     <ol className="favorites__list">
                         {this.props.movies.map((item) => {
                             return <li className="favorites__list_item" key={item.imdbID}>{item.title} ({item.year}) <button onClick={(imdbID) => this.props.itemDeleteHandler(item.imdbID)}>❌</button></li>;
                         })}
                     </ol>
-                    <button onClick={this.saveHandler} type="button" className="favorites__save">Сохранить список</button>
+                    {this.state.flag ? <button onClick={this.saveHandler} type="button" className="favorites__save">Сохранить список</button> : <Link className="listUrl" to={`/list/${this.state.listID}`}>{this.state.title}</Link>}
                 </div>
-                <Link className="listUrl" to={`/list/${this.state.listID}`}>{this.state.title}</Link>
-                <ListPage listID={this.state.listID} movies={this.state.movies} data={this.state.data} />
+                <Route path="/" exact component={ListPage}>
+                    <ListPage listID={this.state.listID} movies={this.state.movies} data={this.state.data} />
+                </Route>
             </>
         );
     }

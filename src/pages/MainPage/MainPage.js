@@ -73,6 +73,6 @@ class MainPage extends Component {
     }
 }
 
-// {this.state.filmsArray === {} ? <Movies filmsArray={this.state.filmsArray} /> : null }
+
 
 export default MainPage;

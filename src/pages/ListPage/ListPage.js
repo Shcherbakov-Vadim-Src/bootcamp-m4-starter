@@ -24,14 +24,14 @@ class ListPage extends Component {
         // console.log('componentDidUpdate ----  listID', this.props.listID);
         if (this.state.flag){
             this.getData(this.props.listID).then((data) => {
-                console.log('componentDidUpdate ----  data', data);
+                // console.log('componentDidUpdate ----  data', data);
                 this.setState({ 
                     dataVelue: data,
                     flag: false
               })                     
             })  
-        }                           
-    }  //  http://localhost:3000/<id>    this.state.dataVelue.id
+        }                         
+    }  
 
 
     getData = (e) => {
@@ -49,10 +49,11 @@ class ListPage extends Component {
             <div className="list-page">
                 <h1 className="list-page__title">{this.state.dataVelue.title}</h1> 
                 <ul>
+                    {console.log(this.props.data)}
                     {this.props.data.map((item) => {     // 
                         return (
                             <li key={item.imdbID}>
-                                <a href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank">{item.title} ({item.year})</a>
+                                <a className="a-link" href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank">{item.title} ({item.year})</a>
                             </li>
                         );
                     })}

@@ -11,7 +11,8 @@ class App extends React.Component {
     return (
       <div className="app">
         <Route path="/" exact component={MainPage} />
-        <Route path="/list/:id" exact component={ListPage} />
+        {/* <Route path="/list/:id" exact component={ListPage} /> */}
+        
       </div>
     );
   }

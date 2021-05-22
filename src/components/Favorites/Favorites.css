@@ -46,3 +46,20 @@
     left: 720px;
 }
 
+@media (min-width:  375px) and (max-width: 833px){
+
+    .favorites {
+        box-sizing: border-box;
+        border: 1px solid rgba(0, 8, 7);
+        padding: 30px 20px;
+        position: relative;
+        bottom: -26px;
+        left: 51px;
+        width: 390px;
+    }
+
+
+
+
+
+}
