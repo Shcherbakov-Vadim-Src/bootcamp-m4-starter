@@ -39,3 +39,12 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
+@media (min-width: 375px) and (max-width: 834px) {
+    .search-box__form-input {
+       
+        width: 200px;
+        
+    }
+}

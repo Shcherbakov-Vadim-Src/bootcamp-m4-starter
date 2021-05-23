@@ -29,3 +29,17 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+@media (min-width: 375px) and (max-width: 834px) {    
+    .movie-item__poster {
+        height: 100px;        
+    }
+
+    .movie-item__title {
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    
+}

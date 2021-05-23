@@ -2,10 +2,6 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
-    position: relative;
-    bottom: 2110px;
-    left: 700px;
-    width: 390px;
 }
 
 .favorites__name {
@@ -36,30 +32,18 @@
     transition: all 0.2s linear;
 }
 
-.favorites__list_item {
-    margin: 8px 0 0 0;
-}
+@media (min-width: 375px) and (max-width: 834px) {
 
-.listUL {
-    position: relative;
-    bottom: 1940px;
-    left: 720px;
-}
-
-@media (min-width:  375px) and (max-width: 833px){
-
-    .favorites {
-        box-sizing: border-box;
-        border: 1px solid rgba(0, 8, 7);
-        padding: 30px 20px;
-        position: relative;
-        bottom: -26px;
-        left: 51px;
-        width: 390px;
+    .favorites {        
+        box-sizing: border-box;        
+      
     }
 
-
-
-
-
+    .favorites__list {
+        margin-bottom: 24px;
+        overflow-y: scroll;
+        height: 100px;
+        border: 1px solid black;
+    }
+    
 }

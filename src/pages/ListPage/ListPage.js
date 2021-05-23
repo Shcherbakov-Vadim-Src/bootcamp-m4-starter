@@ -1,59 +1,43 @@
 import React, { Component } from 'react';
 import './ListPage.css';
+import {renderingList} from '../../components/Fetch';
+import { Link,} from 'react-router-dom';
+import {getSelectMovieList} from '../../components/Fetch'
+
 
 class ListPage extends Component {
-    state = {
-        movies: [
-            { title: 'The Godfather', year: 1972, imdbID: 'tt0068646' }
-        ],
-        dataVelue: {},
-        flag: true,
-        url: ''
-    }
+    state = {       
+        movies: null
+       }
 
-
-    componentDidMount(listID) {
-        // listID = this.props.listID;
-
-        // TODO: запрос к сервер на получение списка
-        // TODO: запросы к серверу по всем imdbID       // 
-            
-    }
-
-    componentDidUpdate(listID){
-        // console.log('componentDidUpdate ----  listID', this.props.listID);
-        if (this.state.flag){
-            this.getData(this.props.listID).then((data) => {
-                // console.log('componentDidUpdate ----  data', data);
-                this.setState({ 
-                    dataVelue: data,
-                    flag: false
-              })                     
-            })  
-        }                         
-    }  
-
-
-    getData = (e) => {
-        // console.log(e);
-        return fetch(`https://acb-api.algoritmika.org/api/movies/list/${this.props.listID}`) // Для получения отдельного списка по идентификатору 
-            .then((response) => {
-                return response.json();
-        })
-    }
-
+       componentDidMount() {
+        let params = this.props.match.params.id;
+        console.log(params)
+            getSelectMovieList(params).then((data) => {
+                renderingList(data.movies).then(dates => this.setState({movies:dates}))
+             })
+        }
+       
 
     render() { 
-
-        return (
-            <div className="list-page">
-                <h1 className="list-page__title">{this.state.dataVelue.title}</h1> 
+        let {movies} = this.state
+        return (            
+            <div className="list-page"> 
+                <Link to = '/'>Вернутся на главную</Link>
+                <h1 className="list-page__title">Мой список</h1>
+                {/* {console.log(movies)} */}
                 <ul>
-                    {console.log(this.props.data)}
-                    {this.props.data.map((item) => {     // 
+                    {movies&&movies.map((item) => {
                         return (
-                            <li key={item.imdbID}>
-                                <a className="a-link" href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank">{item.title} ({item.year})</a>
+                            <li key={item.imdbID} className="liList">
+                                <div className="movie-item">                                    
+                                    <img className="movie-item__poster" src={item.Poster} alt={item.Title} />
+                                    <div className="movie-item__info">
+                                        <a href= {`https://www.imdb.com/title/${item.imdbID}/`} target="_blank">
+                                            <h3 className="movie-item__title">{item.Title}&nbsp;({item.Year})</h3> 
+                                        </a>                                       
+                                    </div>                                   
+                                </div>
                             </li>
                         );
                     })}

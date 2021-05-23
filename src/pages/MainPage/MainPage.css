@@ -18,17 +18,32 @@
     width: 35%;   
 }
 
-@media (min-width:  375px) and (max-width: 833px){
+.Linkbr {
+    display: block;
+    margin: 10px 0 0 0;
+}
 
-    .main-page__content {
-        padding: 42px calc(50% - 500px);
-        /* display: flex;
-        justify-content: space-between; */
-        margin: 0 0 0 159px;
+.listmain {
+    margin: 15px 0 0 0;
+}
+
+@media (min-width: 375px) and (max-width: 834px) {    
+
+    .main-page__favorites {
+        background-color: white;
+        width: 100%;   
+        position: fixed;
+        right: 0px;
+        left: 0px;        
+        bottom: 0px;
     }
 
+    .Linkbr {
+        display: inline;
+        margin: 0 0 0 5px;
+    }
 
-
-
-
+    .main-page__main-section {       
+        width: 90%;
+    }
 }
