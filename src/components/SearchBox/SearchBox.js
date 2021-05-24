@@ -10,7 +10,7 @@ class SearchBox extends Component {
                         Искать фильм по названию:
                         <input
                             onChange = {(e) => this.props.changeMovies(e)}
-                            name = 'nameMuv'
+                            name = 'nameMuvei'
                             value={this.props.searchMovies}
                             type="text"
                             className="search-box__form-input"

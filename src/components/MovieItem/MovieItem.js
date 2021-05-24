@@ -3,7 +3,7 @@ import './MovieItem.css';
 
 class MovieItem extends Component {
     render() {
-        const { Title, Year, Poster, imdbID } = this.props;        
+        const { Title, Year, Poster, imdbID, Plot } = this.props;        
         return (
             <article className="movie-item">
                 <img className="movie-item__poster" src={Poster} alt={Title} />

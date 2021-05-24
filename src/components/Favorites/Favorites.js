@@ -13,10 +13,10 @@ class Favorites extends Component {
     render() { 
         return (
             <div className="favorites">
-                <input value= {this.props.titleNewList} className="favorites__name" onChange = {(e) => this.props.getTatle(e)}/>
+                <input value= {this.props.titleNewList} className="favorites__name" onChange = {(e) => this.props.getTitle(e)}/>
                 <ul className="favorites__list">                
-                    {this.props.selectedListMovis.map((item) => {
-                        return <li key={item.imdbID}>{item.Title} ({item.Year})<button onClick = {() => this.props.del(item.imdbID)}>❌</button></li>;
+                    {this.props.selectedListMovies.map((item) => {
+                        return <li className="listItem" key={item.imdbID}>{item.Title} ({item.Year})<button className="but" onClick = {() => this.props.deleteFilms(item.imdbID)}>❌</button></li>;
                     })}
                 </ul>
                 <button type="button" className="favorites__save" onClick = {this.props.requestGeneration}>Сохранить список</button>

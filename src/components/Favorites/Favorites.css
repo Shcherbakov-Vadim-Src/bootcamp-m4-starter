@@ -2,6 +2,8 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
+    width: 432px;
+    margin: 0 0 0 59px;
 }
 
 .favorites__name {
@@ -30,6 +32,14 @@
     cursor: pointer;
     opacity: 0.9;
     transition: all 0.2s linear;
+}
+
+.but {
+    margin: 0 0 0 7px;
+}
+
+.listItem {
+    margin: 5px 0 0 0;
 }
 
 @media (min-width: 375px) and (max-width: 834px) {

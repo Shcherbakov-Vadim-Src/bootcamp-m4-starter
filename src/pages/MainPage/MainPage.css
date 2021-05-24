@@ -20,11 +20,11 @@
 
 .Linkbr {
     display: block;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 57px;
 }
 
 .listmain {
-    margin: 15px 0 0 0;
+    margin: 15px 0 0 57px;
 }
 
 @media (min-width: 375px) and (max-width: 834px) {    

@@ -2,17 +2,20 @@
     padding: 20px;
     background-color: #FFEEDB;
     display: flex;
+    width: 597px;
 }
 
 .movie-item__poster {
-    height: 150px;
+    height: 204px;
     margin-right: 21px;
 }
 
 .movie-item__title {
     font-weight: 500;
-    font-size: 21px;
+    font-size: 23px;
     margin-bottom: 14px;
+    margin: 10px 0 0 0px;
+    text-align: left;
 }
 
 .movie-item__add-button {
@@ -22,6 +25,7 @@
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
+    margin: 19px 0 0 0;
 }
 
 .movie-item__add-button:hover {

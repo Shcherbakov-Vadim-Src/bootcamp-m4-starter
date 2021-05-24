@@ -1,20 +1,37 @@
 .list-page {
     padding: 42px calc(50% - 300px);
-    position: relative;
-    bottom: 2090px;
-    left: 720px;
 }
 
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
-    width: 300px;
+    width: 319px;
+    margin: 40px 0 40px 180px;
 }
 
 .list-page ul li {
     font-size: 18px;
     margin: 9px 0 5px 0;
     width: 300px;
+}
+
+.anchor{
+    font-size: 17px;
+}
+
+.plot {
+    font-size: 17px;
+    line-height: 24px;
+    margin: 33px 0 0 0;
+    color: rgb(87, 82, 82);
+}
+
+.plotMini {
+    font-size: 15px;
+    line-height: 24px;
+    margin: 30px 0 0 0;
+    color: rgb(134, 29, 29);
+    text-align: right;
 }
 
 @media (min-width:  375px) and (max-width: 833px){
@@ -36,7 +53,5 @@
         font-size: 18px;
         margin: 9px 0 0 0;
     }
-
-
 
 }

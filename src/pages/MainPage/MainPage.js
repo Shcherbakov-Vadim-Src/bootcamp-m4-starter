@@ -11,7 +11,7 @@ class MainPage extends Component {
     state = {
         searchMovies: '',
         listMove: [],
-        selectedListMovis: [],
+        selectedListMovies: [],
         titleNewList: 'Новый список',
         dataSaveList: []
     }
@@ -32,7 +32,7 @@ class MainPage extends Component {
                 })
                 this.setState({listMove:fdate})
             } else {
-                alert('Нет таких фильмов')
+                alert('Такого фильма не существует')
             }
         })
     }
@@ -41,32 +41,30 @@ class MainPage extends Component {
         let Movies = this.state.listMove.find((item) => {
             return  item.imdbID === id            
         })
-        let newListMovies = [...this.state.selectedListMovis, Movies]       
+        let newListMovies = [...this.state.selectedListMovies, Movies]       
         let flag = newListMovies.filter((item) => { return item.imdbID === Movies.imdbID})
-        console.log(flag)
 
         if (flag.length === 1) {                
-        this.setState({selectedListMovis:newListMovies})
+        this.setState({selectedListMovies:newListMovies})
         }        
     }
 
-    del = (id) =>{
-        let newArr = this.state.selectedListMovis.filter((item) => { return item.imdbID !== id})
-        this.setState({selectedListMovis: newArr})
+    deleteFilms = (id) =>{
+        let newArr = this.state.selectedListMovies.filter((item) => { return item.imdbID !== id})
+        this.setState({selectedListMovies: newArr})
     }
 
     requestGeneration = () => {
-        let arr = this.state.selectedListMovis.map((item) => item.imdbID)
-
+        let arr = this.state.selectedListMovies.map((item) => item.imdbID)
         creatingMovieList(arr, this.state.titleNewList).then((data) => {
             let arrSelectMuv = [...this.state.dataSaveList, data]
             this.setState({dataSaveList:arrSelectMuv})
         })        
         let emptyArray = []
-        this.setState({selectedListMovis:emptyArray})
+        this.setState({selectedListMovies:emptyArray})
     }
 
-    getTatle = (e) => {
+    getTitle = (e) => {
         this.setState({titleNewList: e.target.value})
     }
 
@@ -85,14 +83,14 @@ class MainPage extends Component {
                         </div>
                     </section>
                     <aside className="main-page__favorites">
-                        <Favorites selectedListMovis = {this.state.selectedListMovis}
-                         getTatle = {this.getTatle} titleNewList = {this.state.titleNewList}
+                        <Favorites selectedListMovies = {this.state.selectedListMovies}
+                         getTitle = {this.getTitle} titleNewList = {this.state.titleNewList}
                          requestGeneration = {this.requestGeneration}
-                         del = {this.del}
+                         deleteFilms = {this.deleteFilms}
                          />  
                         <div className = 'divSaveList'>
                             <p className="listmain">Мои списки:{this.state.dataSaveList.length === 0 ? ' ожидают создания' : null}</p>
-                            {this.state.dataSaveList.map(item =>   <Link className = "Linkbr" to = {`/list/${item.id}`} key={item.id} >{item.title}</Link>)} 
+                            {this.state.dataSaveList.map(item =>   <Link className = "Linkbr"  key={item.id} to = {`/list/${item.id}`}>{item.title}</Link>)} 
                         </div>                  
                     </aside>
                 
