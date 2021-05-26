@@ -27,6 +27,7 @@
     margin: 15px 0 0 57px;
 }
 
+
 @media (min-width: 375px) and (max-width: 834px) {    
 
     .main-page__favorites {
@@ -40,10 +41,24 @@
 
     .Linkbr {
         display: inline;
-        margin: 0 0 0 5px;
+        margin: 17px 0 10px 24px;
     }
 
     .main-page__main-section {       
         width: 90%;
     }
+
+    /* .main-page__content {
+        display: flex;
+        flex-direction: column;
+    } */
+    .main-page__movies {
+        margin-bottom: 350px;
+    }
+
+    .listmain {
+        margin: 32px 0 21px 179px;
+    }
+
+
 }
